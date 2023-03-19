@@ -1,9 +1,8 @@
 ## **MaskCon: Masked Contrastive Learning for Coarse-Labelled Dataset**
 
 <p align="center">
-    <img src="sources/caption.svg" alt="drawing" width="500"/>
+    <img src="sources/caption.svg" alt="svg" width="600"/>
 </p>
-
 
 This is the official PyTorch implementation of CVPR2023 paper  ([MaskCon: Masked Contrastive Learning for Coarse-Labelled Dataset](https://arxiv.org/abs/dummy)). 
 
@@ -14,6 +13,11 @@ Experimentally, our method achieves significant improvement over the current sta
 - pytorch
 - tqdm
 - wandb
+
+Please considering cite our paper if you find this repo useful:
+```
+TOBEDONE
+```
 
 ### Usage
 Example runs on imagenet/SOP/Cars dataset:
@@ -47,10 +51,6 @@ We provide all the coarse labels of downsampled imagenet dataset and Stanford On
 - For ImageNet32 dataset, please copy and paste the `coarse_labels/imagenet32/imagenet32_to_fine.json` and `coarse_labels/imagenet32/imagenet_fine_to_coarse.json` files to the dataset path.
 
 
-Please considering cite our paper if you find this repo useful:
-```
-TOBEDONE
-```
 
 ### License
 This project is licensed under the terms of the MIT license.
