@@ -152,14 +152,6 @@ class MaskCon(nn.Module):
             self._dequeue_and_enqueue(k, coarse_label)
 
     def forward(self, im_k, im_q, coarse_label, args):
-        """
-        Input:
-            im_q: a batch of query images
-            im_k: a batch of key images
-        Output:
-            loss
-        """
-        # update the key encoder
         with torch.no_grad():  # no gradient to keys
             self._momentum_update_key_encoder()
         cls_q, q = self.encoder_q(im_q)  # queries:
@@ -198,7 +190,6 @@ class MaskCon(nn.Module):
             self_z = torch.zeros(len(q), self.K + 1).cuda()
             self_z[:, 0] = 1.0
 
-
             labels = args.w * maskcon_z + (1 - args.w) * self_z
 
         l_neg = torch.einsum('nc,ck->nk', [q, self.queue.clone().detach()])
@@ -214,14 +205,6 @@ class MaskCon(nn.Module):
         return loss
 
     def forward_explicit(self, im_k, im_q, coarse_label, args):
-        """
-        Input:
-            im_q: a batch of query images
-            im_k: a batch of key images
-        Output:
-            loss
-        """
-        # update the key encoder
         with torch.no_grad():  # no gradient to keys
             self._momentum_update_key_encoder()
         cls_q, q = self.encoder_q(im_q)  # queries:
@@ -268,21 +251,3 @@ class MaskCon(nn.Module):
         self._dequeue_and_enqueue(k, coarse_label)
 
         return loss.mean()
-
-
-class LinearHead(nn.Module):
-    def __init__(self, net, dim_in=512, num_class=10):
-        super().__init__()
-        self.net = net
-        self.fc = nn.Linear(dim_in, num_class)
-
-        for param in self.net.parameters():
-            param.requires_grad = False
-
-        self.fc.weight.data.normal_(mean=0.0, std=0.01)
-        self.fc.bias.data.zero_()
-
-    def forward(self, x):
-        with torch.no_grad():
-            feat = self.net(x, feat=True)
-        return self.fc(feat)

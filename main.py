@@ -35,17 +35,19 @@ parser.add_argument('--epochs', default=200, type=int, metavar='N', help='number
 parser.add_argument('--warm_up', default=5, type=int, metavar='N', help='number of warmup epochs')
 parser.add_argument('--batch_size', default=128, type=int, metavar='N', help='mini-batch size')
 parser.add_argument('--wd', default=5e-4, type=float, metavar='W', help='weight decay')
+parser.add_argument('--aug_q', default='strong', type=str, help='augmentation strategy for query image')
+parser.add_argument('--aug_k', default='weak', type=str, help='augmentation strategy for key image')
+parser.add_argument('--gpu_id', default='0', type=str, help='gpuid')
 
 # method configs:
 parser.add_argument('--mode', default='maskcon', type=str, choices=['maskcon', 'grafit', 'coins'], help='training mode')
+
+# maskcon-specific hyperparameters:
 parser.add_argument('--w', default=0.5, type=float, help='weight of self-invariance')  # not-used if maskcon
 parser.add_argument('--t', default=0.05, type=float, help='softmax temperature weight for soft label')
-parser.add_argument('--aug_q', default='strong', type=str, help='augmentation strategy for query image')
-parser.add_argument('--aug_k', default='strong', type=str, help='augmentation strategy for key image')
 
 # logger configs
-parser.add_argument('--wandb_id', type=str, help='wandb project name')
-parser.add_argument('--gpu_id', default='0', type=str, help='gpuid')
+parser.add_argument('--wandb_id', type=str, help='wandb user id')
 
 
 # train for one epoch
@@ -134,7 +136,7 @@ def retrieval(encoder, test_loader, K, chunks=10):
 
 
 def main_proc(args, model, train_loader, test_loader):
-    wandb.init(project=args.wandb_id, entity='mrchenfeng', name='train_' + args.results_dir, group=f'train_{args.dataset}_{args.mode}')
+    wandb.init(project=args.mode, entity=args.wandb_id, name='train_' + args.results_dir, group=f'train_{args.dataset}_{args.mode}')
     wandb.config.update(args)
     """### Start training"""
     # define optimizer
