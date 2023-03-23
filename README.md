@@ -4,6 +4,11 @@
     <img src="sources/caption.svg" alt="svg" width="600"/>
 </p>
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/maskcon-masked-contrastive-learning-for/learning-with-coarse-labels-on-cifar100)](https://paperswithcode.com/sota/learning-with-coarse-labels-on-cifar100?p=maskcon-masked-contrastive-learning-for)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/maskcon-masked-contrastive-learning-for/learning-with-coarse-labels-on-stanford-cars)](https://paperswithcode.com/sota/learning-with-coarse-labels-on-stanford-cars?p=maskcon-masked-contrastive-learning-for)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/maskcon-masked-contrastive-learning-for/learning-with-coarse-labels-on-stanford)](https://paperswithcode.com/sota/learning-with-coarse-labels-on-stanford?p=maskcon-masked-contrastive-learning-for)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/maskcon-masked-contrastive-learning-for/learning-with-coarse-labels-on-imagenet32)](https://paperswithcode.com/sota/learning-with-coarse-labels-on-imagenet32?p=maskcon-masked-contrastive-learning-for)
+
 This is the official PyTorch implementation of CVPR2023 paper  ([MaskCon: Masked Contrastive Learning for Coarse-Labelled Dataset](https://arxiv.org/abs/dummy)). 
 
 ### Abstract
