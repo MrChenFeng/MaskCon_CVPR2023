@@ -22,11 +22,12 @@ Experimentally, our method achieves significant improvement over the current sta
 Please considering cite our paper if you find this repo useful:
 ```bibtex
 @InProceedings{Feng_2023_CVPR,
-    author    = {Chen Feng and Ioannis Patras},
+    author    = {Feng, Chen and Patras, Ioannis},
     title     = {MaskCon: Masked Contrastive Learning for Coarse-Labelled Dataset},
     booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
     month     = {June},
-    year      = {2023}
+    year      = {2023},
+    pages     = {19913-19922}
 }
 ```
 
