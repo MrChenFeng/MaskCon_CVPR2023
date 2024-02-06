@@ -545,7 +545,7 @@ def get_augment(dataset, mode='none'):
         std = (0.2023, 0.1994, 0.2010)
         size = 32
         # extra = CIFAR10Policy()
-    elif dataset == 'cifar20':
+    elif dataset == 'cifar100':
         mean = (0.507, 0.487, 0.441)
         std = (0.267, 0.256, 0.276)
         size = 32
