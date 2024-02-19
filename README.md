@@ -26,7 +26,7 @@ Experimentally, our method achieves significant improvement over the current sta
     pages     = {19913-19922}
 }
 ```
-Please considering *cite our paper and star the repo* if you find this repo useful.
+Please considering ***cite our paper and star the repo*** if you find this repo useful.
 
 ### Preparation
 - pytorch
